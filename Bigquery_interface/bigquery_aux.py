@@ -11,8 +11,6 @@ database
  
 # import packages
 import os
-import google.auth
-from google.cloud import bigquery
 from errors_aux import custom_error
 from import_sql_query_files import import_sql_query_from_file
 
@@ -50,31 +48,6 @@ def point_google_authentication_as_global_variable(google_credentials_path):
                                path_head + ". Please add " + path_tail + " to " + path_head
         raise custom_error(error_no_credentials)
     return
-
-
-
-
-def initialize_bigquery_client():
-    """
-    This function initialize a bigquery client using the default credentials 
-    for the cloud platform.
-    
-    Returns
-    -------
-    client : bigquery.client object
-        A bigquery.client object which points to the default credentials 
-        scoped on the google cloud platform.
-
-    """
-    # build authentication object 
-    # guidelines at https://cloud.google.com/bigquery/docs/bigquery-storage-python-pandas
-    credentials, project_id = google.auth.default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
-
-    # initialize bigquery client with project id and credentials
-    client = bigquery.Client(credentials = credentials, project = project_id)
-    
-    return client
-
 
 
 
