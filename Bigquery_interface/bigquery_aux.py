@@ -44,10 +44,10 @@ def point_google_authentication_as_global_variable(google_credentials_path):
     if os.path.exists(google_credentials_path):
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = google_credentials_path
     else:
-        error_no_credentials = "File with .json credentials for google project " + \
-                                "not in working directory. "+ \
-                                "Move it here if you have it, or ask Davide for " + \
-                                "one if you don't."
+        path_head, path_tail = os.path.split(google_credentials_path)
+        error_no_credentials = "File " + path_tail + \
+                               " with .json credential for project not found in " + \
+                               path_head + ". Please add " + path_tail + " to " + path_head
         raise custom_error(error_no_credentials)
     return
 
