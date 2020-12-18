@@ -6,3 +6,5 @@
 Bigquery_interface/__pycache__/
 
 Bigquery_interface/Google_credentials/bigquery-stackoverflow-DC-fdb49371cf87.json
+
+__pycache__/

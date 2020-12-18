@@ -11,43 +11,9 @@ database
  
 # import packages
 import os
-from errors_aux import custom_error
 from import_sql_query_files import import_sql_query_from_file
 
 
-
-
-def point_google_authentication_as_global_variable(google_credentials_path):
-    """
-    This function takes the path google_credentials_path of the .json
-    file with the google authentication credentials, and it pass it to 
-    the global variable GOOGLE_APPLICATION_CREDENTIALS. Raises error
-    if the file ingoogle_credentials_path does not exist
-    
-    Parameters
-    ----------
-    google_credentials_path : string 
-        A string with the path of the google credentials.
-        
-    Raises
-    ------
-    custom_error
-        raise error when google_credentials_path does not exist.
-
-    Returns
-    -------
-    None.
-
-    """
-    if os.path.exists(google_credentials_path):
-        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = google_credentials_path
-    else:
-        path_head, path_tail = os.path.split(google_credentials_path)
-        error_no_credentials = "File " + path_tail + \
-                               " with .json credential for project not found in " + \
-                               path_head + ". Please add " + path_tail + " to " + path_head
-        raise custom_error(error_no_credentials)
-    return
 
 
 
