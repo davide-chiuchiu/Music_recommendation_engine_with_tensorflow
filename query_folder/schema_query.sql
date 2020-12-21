@@ -1,0 +1,1 @@
+WITH complete_schema AS (    SELECT table_name,            column_name    FROM INFORMATION_SCHEMA.COLUMN_FIELD_PATHS)    SELECT     column_name AS filed_name,    COUNT(DISTINCT table_name) AS tables_with_fieldFROM complete_schemaGROUP BY column_name

@@ -1,0 +1,1 @@
+SELECT *FROM `ga_sessions_*`LIMIT 5;    
