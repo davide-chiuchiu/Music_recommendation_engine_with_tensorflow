@@ -59,7 +59,7 @@ def format_inputs(dataframe, x_labels, y_label):
         y_array: 
           Array with the data from the columns in dataset with name y_label
     """
-    x_array = [dataframe.loc[:, i] for i in x_labels];
-    y_array = dataframe[y_label]
+    x_array = [dataframe[i].to_numpy() for i in x_labels];
+    y_array = dataframe[y_label].to_numpy()
     
     return x_array, y_array
