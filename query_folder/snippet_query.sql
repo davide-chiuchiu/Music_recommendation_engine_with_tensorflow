@@ -1,1 +1,1 @@
-SELECT *FROM `ga_sessions_*`LIMIT 5;    
+SELECT *FROM listenLIMIT 10;    
